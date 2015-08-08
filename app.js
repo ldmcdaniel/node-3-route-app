@@ -1,32 +1,24 @@
 var express = require('express');
 var app = express();
-// var router = express.Router();
+var bodyParser = require('body-parser');
 var root = require('./routes/root');
 var about = require('./routes/about');
 var contact = require('./routes/contact');
 
-app.locals.title = 'Lucas McDaniel';
+require('./lib/secrets');
+
 app.set('view engine', 'ejs');
 
-// app.get('/', function(req, res){
-//   res.send('hello world');
-// });
+app.locals.title = 'Lucas McDaniel';
 
-// app.get('/about', function(req, res){
-//   res.send('ABout');
-// });
+app.use(bodyParser.urlencoded({extended: true}));
 
-// app.get('/')
-
-// app.get('/contact', function(req, res){
-//   res.send('Contact');
-// });
-
-// app.use('/', routes);
 app.use('/', root)
 app.use('/about', about);
 app.use('/contact', contact);
 
-app.use(express.static('public'));
+
+
+// app.use(express.static('public'));
 
 app.listen(3000);

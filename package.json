@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ldmcdaniel/node-3-route-app#readme",
   "dependencies": {
+    "body-parser": "^1.13.3",
     "ejs": "^2.3.3",
     "express": "^4.13.3",
     "nodemailer": "^1.4.0"
